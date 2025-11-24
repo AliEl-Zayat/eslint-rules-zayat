@@ -1,4 +1,4 @@
-import type { Linter } from 'eslint';
+import type { Linter } from "eslint";
 
 /**
  * Type-aware configuration for TypeScript projects
@@ -24,19 +24,18 @@ import type { Linter } from 'eslint';
  * ```
  */
 export const typeAwareConfig: Linter.Config[] = [
-	{
-		files: ['**/*.{ts,tsx}'],
-		rules: {
-			// Type-aware rules that require parserOptions.project
-			'@typescript-eslint/prefer-optional-chain': 'error',
-			'@typescript-eslint/non-nullable-type-assertion-style': 'error',
-			'@typescript-eslint/prefer-string-starts-ends-with': 'error',
-			'@typescript-eslint/prefer-find': 'error',
-			'@typescript-eslint/prefer-includes': 'error',
-			'@typescript-eslint/no-unsafe-argument': 'error',
-		},
-	},
+  {
+    files: ["**/*.{ts,tsx}"],
+    rules: {
+      // Type-aware rules that require parserOptions.project
+      "@typescript-eslint/prefer-optional-chain": "error",
+      "@typescript-eslint/non-nullable-type-assertion-style": "error",
+      "@typescript-eslint/prefer-string-starts-ends-with": "error",
+      "@typescript-eslint/prefer-find": "error",
+      "@typescript-eslint/prefer-includes": "error",
+      "@typescript-eslint/no-unsafe-argument": "error",
+    },
+  },
 ];
 
 export default typeAwareConfig;
-

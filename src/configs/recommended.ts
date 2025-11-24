@@ -1,5 +1,6 @@
-import customPlugin from '../plugin/index.js';
-import { baseConfig } from './base.js';
+import type { Linter } from "eslint";
+import customPlugin from "../plugin/index.js";
+import { baseConfig } from "./base.js";
 
 /**
  * Recommended configuration preset for zayat-eslint-rules
@@ -15,27 +16,28 @@ import { baseConfig } from './base.js';
  * - boolean-naming-convention: Enforces boolean variable naming conventions
  * - no-nested-ternary: Prevents nested ternary expressions
  */
-export const recommendedConfig = [
-	...baseConfig,
-	{
-		plugins: {
-			custom: customPlugin as unknown as Record<string, unknown>,
-		},
-		rules: {
-			// Component rules
-			'custom/one-component-per-file': 'error',
-			// Error handling rules
-			'custom/no-empty-catch': 'error',
-			// JSX rules
-			'custom/no-inline-objects': 'error',
-			'custom/no-inline-functions': 'error',
-			// Naming rules
-			'custom/boolean-naming-convention': 'error',
-			// Readability rules
-			'custom/no-nested-ternary': 'error',
-		},
-	},
+export const recommendedConfig: Linter.Config[] = [
+  ...baseConfig,
+  {
+    plugins: {
+      // Type assertion needed: @typescript-eslint/utils RuleModule types
+      // aren't compatible with ESLint's Plugin type, but works at runtime
+      custom: customPlugin as unknown as Record<string, unknown>,
+    },
+    rules: {
+      // Component rules
+      "custom/one-component-per-file": "error",
+      // Error handling rules
+      "custom/no-empty-catch": "error",
+      // JSX rules
+      "custom/no-inline-objects": "error",
+      "custom/no-inline-functions": "error",
+      // Naming rules
+      "custom/boolean-naming-convention": "error",
+      // Readability rules
+      "custom/no-nested-ternary": "error",
+    },
+  },
 ];
 
 export default recommendedConfig;
-

@@ -1,5 +1,6 @@
-import customPlugin from '../plugin/index.js';
-import { recommendedConfig } from './recommended.js';
+import type { Linter } from "eslint";
+import customPlugin from "../plugin/index.js";
+import { recommendedConfig } from "./recommended.js";
 
 /**
  * Strict configuration preset for zayat-eslint-rules
@@ -20,43 +21,50 @@ import { recommendedConfig } from './recommended.js';
  * - no-nested-ternary: Prevents nested ternary expressions
  * - no-response-data-return: Prevents returning response.data directly from services
  */
-export const strictConfig = [
-	...recommendedConfig,
-	{
-		plugins: {
-			custom: customPlugin as unknown as Record<string, unknown>,
-		},
-		rules: {
-			// Component rules (already in recommended)
-			'custom/one-component-per-file': 'error',
-			// Error handling rules (already in recommended)
-			'custom/no-empty-catch': 'error',
-			// Forms rules (NEW in strict)
-			'custom/form-config-extraction': 'error',
-			// JSX rules (already in recommended)
-			'custom/no-inline-objects': 'error',
-			'custom/no-inline-functions': 'error',
-			// Naming rules (already in recommended)
-			'custom/boolean-naming-convention': 'error',
-			// Readability rules (already in recommended)
-			'custom/no-nested-ternary': 'error',
-			// Services rules (NEW in strict)
-			'custom/no-response-data-return': 'error',
-		},
-	},
-	// Icon rules - only apply to icon files
-	{
-		files: ['**/icons/**/*.{ts,tsx}', '**/icon/**/*.{ts,tsx}', '**/*Icon.{ts,tsx}'],
-		plugins: {
-			custom: customPlugin as unknown as Record<string, unknown>,
-		},
-		rules: {
-			'custom/single-svg-per-file': 'error',
-			'custom/svg-currentcolor': 'error',
-			'custom/memoized-export': 'error',
-		},
-	},
+export const strictConfig: Linter.Config[] = [
+  ...recommendedConfig,
+  {
+    plugins: {
+      // Type assertion needed: @typescript-eslint/utils RuleModule types
+      // aren't compatible with ESLint's Plugin type, but works at runtime
+      custom: customPlugin as unknown as Record<string, unknown>,
+    },
+    rules: {
+      // Component rules (already in recommended)
+      "custom/one-component-per-file": "error",
+      // Error handling rules (already in recommended)
+      "custom/no-empty-catch": "error",
+      // Forms rules (NEW in strict)
+      "custom/form-config-extraction": "error",
+      // JSX rules (already in recommended)
+      "custom/no-inline-objects": "error",
+      "custom/no-inline-functions": "error",
+      // Naming rules (already in recommended)
+      "custom/boolean-naming-convention": "error",
+      // Readability rules (already in recommended)
+      "custom/no-nested-ternary": "error",
+      // Services rules (NEW in strict)
+      "custom/no-response-data-return": "error",
+    },
+  },
+  // Icon rules - only apply to icon files
+  {
+    files: [
+      "**/icons/**/*.{ts,tsx}",
+      "**/icon/**/*.{ts,tsx}",
+      "**/*Icon.{ts,tsx}",
+    ],
+    plugins: {
+      // Type assertion needed: @typescript-eslint/utils RuleModule types
+      // aren't compatible with ESLint's Plugin type, but works at runtime
+      custom: customPlugin as unknown as Record<string, unknown>,
+    },
+    rules: {
+      "custom/single-svg-per-file": "error",
+      "custom/svg-currentcolor": "error",
+      "custom/memoized-export": "error",
+    },
+  },
 ];
 
 export default strictConfig;
-

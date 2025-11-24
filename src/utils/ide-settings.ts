@@ -4,114 +4,116 @@
  */
 
 export interface VSCodeSettings {
-	'editor.formatOnSave': boolean;
-	'editor.defaultFormatter': string;
-	'editor.codeActionsOnSave': {
-		'source.fixAll.eslint': string;
-		'source.organizeImports'?: string;
-	};
-	'eslint.validate': string[];
-	'eslint.format.enable'?: boolean;
-	'prettier.requireConfig'?: boolean;
-	'[typescript]'?: {
-		'editor.defaultFormatter': string;
-	};
-	'[typescriptreact]'?: {
-		'editor.defaultFormatter': string;
-	};
-	'[javascript]'?: {
-		'editor.defaultFormatter': string;
-	};
-	'[javascriptreact]'?: {
-		'editor.defaultFormatter': string;
-	};
+  "editor.formatOnSave": boolean;
+  "editor.defaultFormatter": string;
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": string;
+    "source.organizeImports"?: string;
+  };
+  "eslint.validate": string[];
+  "eslint.format.enable"?: boolean;
+  "prettier.requireConfig"?: boolean;
+  "[typescript]"?: {
+    "editor.defaultFormatter": string;
+  };
+  "[typescriptreact]"?: {
+    "editor.defaultFormatter": string;
+  };
+  "[javascript]"?: {
+    "editor.defaultFormatter": string;
+  };
+  "[javascriptreact]"?: {
+    "editor.defaultFormatter": string;
+  };
 }
 
 /**
  * Get recommended VS Code settings that prevent ESLint/Prettier conflicts
- * 
+ *
  * This configuration ensures:
  * 1. Prettier handles formatting (via defaultFormatter)
  * 2. ESLint handles code quality rules (via codeActionsOnSave)
  * 3. Both run on save without conflict
- * 
+ *
  * @returns Recommended VS Code settings object
  */
 export function getRecommendedVSCodeSettings(): VSCodeSettings {
-	return {
-		// Enable format on save
-		'editor.formatOnSave': true,
-		
-		// Use Prettier as the default formatter
-		'editor.defaultFormatter': 'esbenp.prettier-vscode',
-		
-		// Run ESLint fix on save (after Prettier formats)
-		'editor.codeActionsOnSave': {
-			'source.fixAll.eslint': 'explicit',
-		},
-		
-		// File types ESLint should validate
-		'eslint.validate': [
-			'javascript',
-			'javascriptreact',
-			'typescript',
-			'typescriptreact',
-		],
-		
-		// Language-specific formatters (optional but recommended)
-		'[typescript]': {
-			'editor.defaultFormatter': 'esbenp.prettier-vscode',
-		},
-		'[typescriptreact]': {
-			'editor.defaultFormatter': 'esbenp.prettier-vscode',
-		},
-		'[javascript]': {
-			'editor.defaultFormatter': 'esbenp.prettier-vscode',
-		},
-		'[javascriptreact]': {
-			'editor.defaultFormatter': 'esbenp.prettier-vscode',
-		},
-	};
+  return {
+    // Enable format on save
+    "editor.formatOnSave": true,
+
+    // Use Prettier as the default formatter
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+    // Run ESLint fix on save (after Prettier formats)
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+    },
+
+    // File types ESLint should validate
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+    ],
+
+    // Language-specific formatters (optional but recommended)
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+  };
 }
 
 /**
  * Get VS Code settings as a formatted JSON string
  * Ready to be copied into .vscode/settings.json
- * 
+ *
  * @returns Formatted JSON string
  */
 export function getVSCodeSettingsJSON(): string {
-	return JSON.stringify(getRecommendedVSCodeSettings(), null, '\t');
+  return JSON.stringify(getRecommendedVSCodeSettings(), null, "\t");
 }
 
 /**
  * Recommended extensions for the ESLint + Prettier setup
  */
 export const RECOMMENDED_VSCODE_EXTENSIONS = [
-	'dbaeumer.vscode-eslint',           // ESLint extension
-	'esbenp.prettier-vscode',           // Prettier extension
-	'bradlc.vscode-tailwindcss',        // Tailwind CSS IntelliSense (optional)
+  "dbaeumer.vscode-eslint", // ESLint extension
+  "esbenp.prettier-vscode", // Prettier extension
+  "bradlc.vscode-tailwindcss", // Tailwind CSS IntelliSense (optional)
 ];
 
 /**
  * Get VS Code extensions recommendations
  * Ready to be copied into .vscode/extensions.json
- * 
+ *
  * @returns Extensions recommendations object
  */
-export function getVSCodeExtensionsRecommendations(): { recommendations: string[] } {
-	return {
-		recommendations: RECOMMENDED_VSCODE_EXTENSIONS,
-	};
+export function getVSCodeExtensionsRecommendations(): {
+  recommendations: string[];
+} {
+  return {
+    recommendations: RECOMMENDED_VSCODE_EXTENSIONS,
+  };
 }
 
 /**
  * Get VS Code extensions as a formatted JSON string
- * 
+ *
  * @returns Formatted JSON string
  */
 export function getVSCodeExtensionsJSON(): string {
-	return JSON.stringify(getVSCodeExtensionsRecommendations(), null, '\t');
+  return JSON.stringify(getVSCodeExtensionsRecommendations(), null, "\t");
 }
 
 /**
@@ -138,7 +140,7 @@ ESLint rules that would conflict with Prettier formatting.
 Add to your \`.vscode/settings.json\`:
 
 \`\`\`json
-${JSON.stringify(getRecommendedVSCodeSettings(), null, '\t')}
+${JSON.stringify(getRecommendedVSCodeSettings(), null, "\t")}
 \`\`\`
 
 ## Troubleshooting:
@@ -157,10 +159,9 @@ ensures ESLint's own formatting rules don't conflict with these Prettier rules.
 
 /**
  * Get the conflict prevention guide
- * 
+ *
  * @returns Documentation string
  */
 export function getConflictPreventionGuide(): string {
-	return CONFLICT_PREVENTION_GUIDE;
+  return CONFLICT_PREVENTION_GUIDE;
 }
-

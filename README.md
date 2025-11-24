@@ -2,6 +2,8 @@
 
 Custom ESLint rules and configurations for React/TypeScript projects.
 
+> **Note**: This library is _vibe coded_ - built with passion and continuously evolving! I'm actively listening to the community for enhancement requests and improvements. Feel free to [open an issue](https://github.com/AliEl-Zayat/vertex-era-rules/issues) or submit a PR. Your feedback shapes this library!
+
 ## Features
 
 - 🎯 **12 Custom Rules** - Best practices for React/TypeScript development
@@ -28,7 +30,7 @@ npm install git+https://github.com/AliEl-Zayat/vertex-era-rules.git
 Create or update your `eslint.config.ts`:
 
 ```typescript
-import eslintRules from 'zayat-eslint-rules';
+import eslintRules from "zayat-eslint-rules";
 
 export default [
   ...eslintRules.configs.recommended,
@@ -43,7 +45,7 @@ export default [
 Core configuration without custom rules:
 
 ```typescript
-import { baseConfig } from 'zayat-eslint-rules';
+import { baseConfig } from "zayat-eslint-rules";
 
 export default [...baseConfig];
 ```
@@ -53,7 +55,7 @@ export default [...baseConfig];
 Base config + commonly used custom rules:
 
 ```typescript
-import eslintRules from 'zayat-eslint-rules';
+import eslintRules from "zayat-eslint-rules";
 
 export default [...eslintRules.configs.recommended];
 ```
@@ -63,7 +65,7 @@ export default [...eslintRules.configs.recommended];
 All custom rules enabled:
 
 ```typescript
-import eslintRules from 'zayat-eslint-rules';
+import eslintRules from "zayat-eslint-rules";
 
 export default [...eslintRules.configs.strict];
 ```
@@ -73,7 +75,7 @@ export default [...eslintRules.configs.strict];
 For projects with TypeScript type checking:
 
 ```typescript
-import eslintRules from 'zayat-eslint-rules';
+import eslintRules from "zayat-eslint-rules";
 
 export default [
   ...eslintRules.configs.recommended,
@@ -81,7 +83,7 @@ export default [
   {
     languageOptions: {
       parserOptions: {
-        project: './tsconfig.json',
+        project: "./tsconfig.json",
       },
     },
   },
@@ -92,53 +94,53 @@ export default [
 
 ### Component Rules
 
-| Rule | Description |
-|------|-------------|
+| Rule                            | Description                          |
+| ------------------------------- | ------------------------------------ |
 | `custom/one-component-per-file` | Enforce one React component per file |
 
 ### Error Handling Rules
 
-| Rule | Description |
-|------|-------------|
+| Rule                    | Description                |
+| ----------------------- | -------------------------- |
 | `custom/no-empty-catch` | Prevent empty catch blocks |
 
 ### Forms Rules
 
-| Rule | Description |
-|------|-------------|
+| Rule                            | Description                                 |
+| ------------------------------- | ------------------------------------------- |
 | `custom/form-config-extraction` | Enforce form config extraction to constants |
 
 ### Icon Rules (Icon files only)
 
-| Rule | Description |
-|------|-------------|
-| `custom/single-svg-per-file` | One SVG icon per file |
-| `custom/svg-currentcolor` | Use currentColor in single-color SVGs |
-| `custom/memoized-export` | Memoize icon exports with React.memo |
+| Rule                         | Description                           |
+| ---------------------------- | ------------------------------------- |
+| `custom/single-svg-per-file` | One SVG icon per file                 |
+| `custom/svg-currentcolor`    | Use currentColor in single-color SVGs |
+| `custom/memoized-export`     | Memoize icon exports with React.memo  |
 
 ### JSX Rules
 
-| Rule | Description |
-|------|-------------|
-| `custom/no-inline-objects` | Prevent inline objects in JSX props |
+| Rule                         | Description                           |
+| ---------------------------- | ------------------------------------- |
+| `custom/no-inline-objects`   | Prevent inline objects in JSX props   |
 | `custom/no-inline-functions` | Prevent inline functions in JSX props |
 
 ### Naming Rules
 
-| Rule | Description |
-|------|-------------|
+| Rule                               | Description                                               |
+| ---------------------------------- | --------------------------------------------------------- |
 | `custom/boolean-naming-convention` | Boolean variables must have is/has/should/can/will prefix |
 
 ### Readability Rules
 
-| Rule | Description |
-|------|-------------|
+| Rule                       | Description                      |
+| -------------------------- | -------------------------------- |
 | `custom/no-nested-ternary` | Prevent nested ternary operators |
 
 ### Services Rules
 
-| Rule | Description |
-|------|-------------|
+| Rule                             | Description                                      |
+| -------------------------------- | ------------------------------------------------ |
 | `custom/no-response-data-return` | Prevent direct response.data returns in services |
 
 ## Prettier Integration
@@ -163,7 +165,7 @@ This package includes `eslint-config-prettier` to automatically disable ESLint r
 Get recommended VS Code settings:
 
 ```typescript
-import { getVSCodeSettingsJSON } from 'zayat-eslint-rules';
+import { getVSCodeSettingsJSON } from "zayat-eslint-rules";
 
 console.log(getVSCodeSettingsJSON());
 ```
@@ -201,10 +203,10 @@ The package enforces using typed Redux hooks:
 
 ```typescript
 // ❌ Error
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 
 // ✅ Correct
-import { useAppSelector, useAppDispatch } from '@store/hooks';
+import { useAppSelector, useAppDispatch } from "@store/hooks";
 ```
 
 ## Utilities
@@ -212,7 +214,10 @@ import { useAppSelector, useAppDispatch } from '@store/hooks';
 ### Prettier Detection
 
 ```typescript
-import { detectPrettierConfig, getPrettierConfigForESLint } from 'zayat-eslint-rules';
+import {
+  detectPrettierConfig,
+  getPrettierConfigForESLint,
+} from "zayat-eslint-rules";
 
 // Check if Prettier config exists
 const result = detectPrettierConfig();
@@ -229,7 +234,7 @@ import {
   getRecommendedVSCodeSettings,
   getVSCodeSettingsJSON,
   getVSCodeExtensionsRecommendations,
-} from 'zayat-eslint-rules';
+} from "zayat-eslint-rules";
 
 // Get settings object
 const settings = getRecommendedVSCodeSettings();
@@ -241,6 +246,34 @@ const json = getVSCodeSettingsJSON();
 const extensions = getVSCodeExtensionsRecommendations();
 ```
 
+## Contributing
+
+This library is community-driven and I welcome all contributions! Here's how you can help:
+
+- **Report bugs**: Found something broken? [Open an issue](https://github.com/AliEl-Zayat/vertex-era-rules/issues/new)
+- **Request features**: Have an idea for a new rule or improvement? I'd love to hear it!
+- **Submit PRs**: Code contributions are always appreciated
+- **Share feedback**: Even small suggestions help make this library better
+
+### Development
+
+```bash
+# Clone the repo
+git clone https://github.com/AliEl-Zayat/vertex-era-rules.git
+
+# Install dependencies
+npm install
+
+# Build
+npm run build
+
+# Run tests
+npm test
+
+# Type check
+npm run typecheck
+```
+
 ## License
 
 MIT © Zayat
@@ -249,4 +282,3 @@ MIT © Zayat
 
 - [GitHub Repository](https://github.com/AliEl-Zayat/vertex-era-rules)
 - [Issue Tracker](https://github.com/AliEl-Zayat/vertex-era-rules/issues)
-
