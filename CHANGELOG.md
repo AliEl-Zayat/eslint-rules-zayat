@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.2.0 (2025-11-25)
+
+### Added
+
+* Add `mainTsxConfig` file-specific configuration to disable `@typescript-eslint/no-non-null-assertion` for `main.tsx` entry files
+* Add `shadcnUiConfig` file-specific configuration with relaxed rules for shadcn UI components (`**/ui/*.{ts,tsx}`)
+* Add example file `examples/shadcn-ui-config.ts` demonstrating usage of file-specific configurations
+
 ## 1.1.0 (2025-11-25)
 
 

@@ -105,6 +105,48 @@ export const configFileConfig: Linter.Config = {
 	},
 };
 
+/**
+ * Main entry point configuration
+ * Disables no-non-null-assertion for main.tsx entry files
+ */
+export const mainTsxConfig: Linter.Config = {
+	files: ['main.tsx'],
+	rules: {
+		'@typescript-eslint/no-non-null-assertion': 'off',
+	},
+};
+
+/**
+ * Shadcn UI component configuration
+ * Relaxes rules for shadcn UI components to accommodate their patterns
+ */
+export const shadcnUiConfig: Linter.Config = {
+	files: ['**/ui/*.{ts,tsx}'],
+	rules: {
+		'custom/one-component-per-file': 'off',
+		'custom/no-inline-objects': 'off',
+		'custom/no-inline-functions': 'off',
+		'custom/no-nested-ternary': 'off',
+		'react-refresh/only-export-components': 'off',
+		'react-hooks/purity': 'off',
+		'@typescript-eslint/naming-convention': 'off',
+		'custom/boolean-naming-convention': [
+			'error',
+			{
+				allowedPrefixes: [
+					'show',
+					'hide',
+					'as',
+					'open',
+					'close',
+					'with',
+					'can',
+				],
+			},
+		],
+	},
+};
+
 export default {
 	iconFileConfig,
 	serviceFileConfig,
@@ -112,5 +154,7 @@ export default {
 	componentFileConfig,
 	testFileConfig,
 	configFileConfig,
+	mainTsxConfig,
+	shadcnUiConfig,
 };
 
