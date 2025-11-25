@@ -110,7 +110,6 @@ export const noEmptyCatch = createRule({
             }
           }
         } catch (error) {
-          // eslint-disable-next-line no-console
           console.error("Error in no-empty-catch:", error);
         }
       },

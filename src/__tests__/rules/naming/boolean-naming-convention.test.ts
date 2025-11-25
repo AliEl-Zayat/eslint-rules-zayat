@@ -46,6 +46,38 @@ ruleTester.run('boolean-naming-convention', booleanNamingConvention, {
 		{
 			code: `const withAuth = false;`,
 		},
+		// Boolean with 'show' prefix
+		{
+			code: `const showModal = true;`,
+		},
+		// Boolean with 'hide' prefix
+		{
+			code: `const hideDialog = false;`,
+		},
+		// Boolean with 'open' prefix
+		{
+			code: `const openMenu = true;`,
+		},
+		// Boolean with 'close' prefix
+		{
+			code: `const closePanel = false;`,
+		},
+		// Allowed name: inset
+		{
+			code: `const inset = true;`,
+		},
+		// Allowed name: viewport
+		{
+			code: `const viewport = false;`,
+		},
+		// Allowed name: defaultOpen
+		{
+			code: `const defaultOpen = true;`,
+		},
+		// Allowed name: open
+		{
+			code: `const open = false;`,
+		},
 		// Non-boolean variable
 		{
 			code: `const name = "John";`,
@@ -57,6 +89,24 @@ ruleTester.run('boolean-naming-convention', booleanNamingConvention, {
 		// Negation operation (returns boolean)
 		{
 			code: `const isValid = !someValue;`,
+		},
+		// Custom allowedNames option
+		{
+			code: `const customAllowed = true;`,
+			options: [
+				{
+					allowedNames: ['customAllowed'],
+				},
+			],
+		},
+		// Custom allowedPrefixes option
+		{
+			code: `const customPrefix = true;`,
+			options: [
+				{
+					allowedPrefixes: ['custom'],
+				},
+			],
 		},
 	],
 	invalid: [
@@ -77,4 +127,5 @@ ruleTester.run('boolean-naming-convention', booleanNamingConvention, {
 		},
 	],
 });
+
 

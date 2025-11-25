@@ -38,3 +38,6 @@ export const reduxConfig: Linter.Config = {
 };
 
 export default reduxConfig;
+
+
+

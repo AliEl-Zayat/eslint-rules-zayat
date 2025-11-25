@@ -41,7 +41,6 @@ export const oneComponentPerFile = createRule({
             }
           }
         } catch (error) {
-          // eslint-disable-next-line no-console
           console.error(
             "Error in one-component-per-file (AssignmentExpression):",
             error
@@ -60,7 +59,6 @@ export const oneComponentPerFile = createRule({
             });
           }
         } catch (error) {
-          // eslint-disable-next-line no-console
           console.error(
             "Error in one-component-per-file (FunctionDeclaration):",
             error
@@ -82,7 +80,6 @@ export const oneComponentPerFile = createRule({
             });
           }
         } catch (error) {
-          // eslint-disable-next-line no-console
           console.error(
             "Error in one-component-per-file (VariableDeclarator):",
             error
@@ -101,7 +98,6 @@ export const oneComponentPerFile = createRule({
             });
           }
         } catch (error) {
-          // eslint-disable-next-line no-console
           console.error(
             "Error in one-component-per-file (ClassDeclaration):",
             error
@@ -136,7 +132,6 @@ export const oneComponentPerFile = createRule({
             });
           }
         } catch (error) {
-          // eslint-disable-next-line no-console
           console.error(
             "Error in one-component-per-file (Program:exit):",
             error

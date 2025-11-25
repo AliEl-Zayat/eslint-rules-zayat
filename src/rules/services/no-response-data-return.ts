@@ -53,7 +53,6 @@ export const noResponseDataReturn = createRule({
 
         return false;
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.error("Error in isResponseDataAccess:", error);
         return false;
       }
@@ -78,7 +77,6 @@ export const noResponseDataReturn = createRule({
 
         return false;
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.error("Error in isDirectResponseDataReturn:", error);
         return false;
       }
@@ -94,7 +92,6 @@ export const noResponseDataReturn = createRule({
             });
           }
         } catch (error) {
-          // eslint-disable-next-line no-console
           console.error(
             "Error in no-response-data-return (ReturnStatement):",
             error

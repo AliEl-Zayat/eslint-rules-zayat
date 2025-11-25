@@ -75,7 +75,6 @@ export const formConfigExtraction = createRule({
             }
           }
         } catch (error) {
-          // eslint-disable-next-line no-console
           console.error(
             "Error in form-config-extraction (ImportDeclaration):",
             error
@@ -199,7 +198,6 @@ export const formConfigExtraction = createRule({
             }
           }
         } catch (error) {
-          // eslint-disable-next-line no-console
           console.error(
             "Error in form-config-extraction (CallExpression):",
             error

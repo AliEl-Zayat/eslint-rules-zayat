@@ -9,6 +9,7 @@ import {
 export interface IRuleOptions {
   prefix?: string;
   allowedPrefixes?: string[];
+  allowedNames?: string[];
 }
 
 export const booleanNamingConvention = createRule<
@@ -36,6 +37,12 @@ export const booleanNamingConvention = createRule<
               type: "string",
             },
           },
+          allowedNames: {
+            type: "array",
+            items: {
+              type: "string",
+            },
+          },
         },
         additionalProperties: false,
       },
@@ -48,7 +55,19 @@ export const booleanNamingConvention = createRule<
   defaultOptions: [
     {
       prefix: "is",
-      allowedPrefixes: ["has", "should", "can", "will", "as", "with"],
+      allowedPrefixes: [
+        "has",
+        "should",
+        "can",
+        "will",
+        "as",
+        "with",
+        "show",
+        "hide",
+        "open",
+        "close",
+      ],
+      allowedNames: ["inset", "viewport", "defaultOpen", "open"],
     },
   ],
   create(context) {
@@ -61,10 +80,26 @@ export const booleanNamingConvention = createRule<
       "will",
       "as",
       "with",
+      "show",
+      "hide",
+      "open",
+      "close",
+    ];
+    const allowedNames = options.allowedNames || [
+      "inset",
+      "viewport",
+      "defaultOpen",
+      "open",
     ];
     const allPrefixes = [prefix, ...allowedPrefixes];
 
     function checkBooleanNaming(name: string, node: TSESTree.Node): void {
+      // First check if the name is in the allowed names list (exact match)
+      if (allowedNames.includes(name)) {
+        return;
+      }
+
+      // Then check prefix patterns
       const primaryPrefix = allPrefixes[0];
 
       if (name.length > primaryPrefix.length) {

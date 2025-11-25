@@ -282,3 +282,6 @@ MIT © Zayat
 
 - [GitHub Repository](https://github.com/AliEl-Zayat/eslint-rules-zayat)
 - [Issue Tracker](https://github.com/AliEl-Zayat/eslint-rules-zayat/issues)
+
+
+

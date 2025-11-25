@@ -44,7 +44,6 @@ export const noInlineObjects = createRule({
             }
           }
         } catch (error) {
-          // eslint-disable-next-line no-console
           console.error("Error in no-inline-objects rule:", error);
         }
       },
@@ -88,7 +87,6 @@ export const noInlineFunctions = createRule({
             }
           }
         } catch (error) {
-          // eslint-disable-next-line no-console
           console.error("Error in no-inline-functions rule:", error);
         }
       },

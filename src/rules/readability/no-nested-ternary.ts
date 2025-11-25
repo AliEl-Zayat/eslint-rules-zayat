@@ -52,3 +52,6 @@ export const noNestedTernary = createRule({
 export default {
   "no-nested-ternary": noNestedTernary,
 };
+
+
+

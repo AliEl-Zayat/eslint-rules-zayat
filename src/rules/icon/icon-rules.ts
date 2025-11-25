@@ -192,7 +192,6 @@ export const singleSvgPerFile = createRule({
             }
           }
         } catch (error) {
-          // eslint-disable-next-line no-console
           console.error("Error in single-svg-per-file rule:", error);
         }
       },
@@ -263,7 +262,6 @@ export const svgCurrentcolor = createRule({
             }
           }
         } catch (error) {
-          // eslint-disable-next-line no-console
           console.error("Error in svg-currentcolor rule:", error);
         }
       },
@@ -388,7 +386,6 @@ export const memoizedExport = createRule({
           }
         }
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.error("Error in memoized-export rule:", error);
       }
     }

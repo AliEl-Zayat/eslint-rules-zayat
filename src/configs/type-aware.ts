@@ -39,3 +39,6 @@ export const typeAwareConfig: Linter.Config[] = [
 ];
 
 export default typeAwareConfig;
+
+
+

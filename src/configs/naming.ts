@@ -51,3 +51,6 @@ export const namingConfig: Linter.Config = {
 };
 
 export default namingConfig;
+
+
+
