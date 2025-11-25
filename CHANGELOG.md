@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.0 (2025-11-25)
+
+
+### Features
+
+* improve type safety with eslintutils.rulecreator ([2d77111](https://github.com/AliEl-Zayat/vertex-era-rules/commit/2d771114e27f69a78e206f4b25b1a23937e674c8))
+* sync library with vertex-era-rules - add configs, examples, and docs ([605fdb7](https://github.com/AliEl-Zayat/vertex-era-rules/commit/605fdb7617f442faae014ce6f13190f55503375c))
+
+
+### Bug Fixes
+
+* update github repository urls to eslint-rules-zayat ([c74b131](https://github.com/AliEl-Zayat/vertex-era-rules/commit/c74b131fac6c741d0ce5e22127b113347e1344ee))
+
 ## [1.0.0] - 2024-01-01
 
 ### Added
@@ -91,4 +104,3 @@ Categories to use:
 - `Removed` - Removed features
 - `Fixed` - Bug fixes
 - `Security` - Vulnerability fixes
-

@@ -1,6 +1,6 @@
 {
   "name": "zayat-eslint-rules",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Custom ESLint rules and configurations for React/TypeScript projects",
   "type": "module",
   "main": "./dist/index.js",
@@ -117,6 +117,3 @@
     "node": ">=18.0.0"
   }
 }
-
-
-
