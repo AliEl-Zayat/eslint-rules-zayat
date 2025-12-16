@@ -5,8 +5,10 @@ Get up and running with `zayat-eslint-rules` in minutes.
 ## Prerequisites
 
 - Node.js >= 18.0.0
-- ESLint >= 9.0.0
+- ESLint >= 8.0.0 (ESLint 9.0.0+ recommended for full feature support)
 - TypeScript >= 5.0.0
+
+**Note**: ESLint 8.x is supported, but ESLint 9+ is recommended. ESLint 9+ provides the flat config format and full compatibility with all features. For ESLint 8.x, some features may have limitations.
 
 ## Installation
 
@@ -33,12 +35,11 @@ Create `eslint.config.ts` (or `eslint.config.js`) in your project root:
 ```typescript
 import eslintRules from 'zayat-eslint-rules';
 
-export default [
-  ...eslintRules.configs.recommended,
-];
+export default [...eslintRules.configs.recommended];
 ```
 
 That's it! You now have:
+
 - ESLint recommended rules
 - TypeScript recommended, stylistic, and strict rules
 - Import sorting and unused import detection
@@ -66,12 +67,11 @@ Best for most projects. Includes common custom rules:
 ```typescript
 import eslintRules from 'zayat-eslint-rules';
 
-export default [
-  ...eslintRules.configs.recommended,
-];
+export default [...eslintRules.configs.recommended];
 ```
 
 **Enabled rules:**
+
 - `custom/one-component-per-file`
 - `custom/no-empty-catch`
 - `custom/no-inline-objects`
@@ -86,12 +86,11 @@ For maximum code quality. Enables ALL custom rules:
 ```typescript
 import eslintRules from 'zayat-eslint-rules';
 
-export default [
-  ...eslintRules.configs.strict,
-];
+export default [...eslintRules.configs.strict];
 ```
 
 **Additional rules:**
+
 - `custom/form-config-extraction`
 - `custom/no-response-data-return`
 - `custom/single-svg-per-file` (icon files only)
@@ -106,15 +105,15 @@ For projects that want TypeScript type-checking rules:
 import eslintRules from 'zayat-eslint-rules';
 
 export default [
-  ...eslintRules.configs.recommended,
-  ...eslintRules.configs.typeAware,
-  {
-    languageOptions: {
-      parserOptions: {
-        project: './tsconfig.json',
-      },
-    },
-  },
+	...eslintRules.configs.recommended,
+	...eslintRules.configs.typeAware,
+	{
+		languageOptions: {
+			parserOptions: {
+				project: './tsconfig.json',
+			},
+		},
+	},
 ];
 ```
 
@@ -124,17 +123,12 @@ For the best experience, add these settings to `.vscode/settings.json`:
 
 ```json
 {
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ]
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
 }
 ```
 
@@ -152,12 +146,12 @@ console.log(getVSCodeSettingsJSON());
 
 ```typescript
 export default [
-  ...eslintRules.configs.recommended,
-  {
-    rules: {
-      'custom/boolean-naming-convention': 'off',
-    },
-  },
+	...eslintRules.configs.recommended,
+	{
+		rules: {
+			'custom/boolean-naming-convention': 'off',
+		},
+	},
 ];
 ```
 
@@ -165,12 +159,12 @@ export default [
 
 ```typescript
 export default [
-  ...eslintRules.configs.recommended,
-  {
-    rules: {
-      'custom/no-inline-objects': 'warn',
-    },
-  },
+	...eslintRules.configs.recommended,
+	{
+		rules: {
+			'custom/no-inline-objects': 'warn',
+		},
+	},
 ];
 ```
 
@@ -178,10 +172,10 @@ export default [
 
 ```typescript
 export default [
-  {
-    ignores: ['**/dist/**', '**/legacy/**'],
-  },
-  ...eslintRules.configs.recommended,
+	{
+		ignores: ['**/dist/**', '**/legacy/**'],
+	},
+	...eslintRules.configs.recommended,
 ];
 ```
 
@@ -189,13 +183,13 @@ export default [
 
 ```typescript
 export default [
-  ...eslintRules.configs.recommended,
-  {
-    files: ['**/*.test.ts'],
-    rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
-    },
-  },
+	...eslintRules.configs.recommended,
+	{
+		files: ['**/*.test.ts'],
+		rules: {
+			'@typescript-eslint/no-explicit-any': 'off',
+		},
+	},
 ];
 ```
 
@@ -210,4 +204,3 @@ export default [
 
 - [GitHub Issues](https://github.com/AliEl-Zayat/eslint-rules-zayat/issues)
 - [Documentation](https://github.com/AliEl-Zayat/eslint-rules-zayat)
-

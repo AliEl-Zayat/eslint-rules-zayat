@@ -25,16 +25,24 @@ Or via GitHub:
 npm install git+https://github.com/AliEl-Zayat/eslint-rules-zayat.git
 ```
 
+### Requirements
+
+- **ESLint**: >= 8.0.0 (>= 9.0.0 recommended)
+- **TypeScript**: >= 5.0.0
+- **Node.js**: >= 18.0.0
+
+**Note**: ESLint 8.x is supported for installation compatibility, but ESLint 9+ is recommended for full feature support. ESLint 9+ uses the flat config format and provides the best experience. For ESLint 8.x, the package will use fallback configurations, but some features may have limitations.
+
 ## Quick Start
 
 Create or update your `eslint.config.ts`:
 
 ```typescript
-import eslintRules from "zayat-eslint-rules";
+import eslintRules from 'zayat-eslint-rules';
 
 export default [
-  ...eslintRules.configs.recommended,
-  // Your custom rules here
+	...eslintRules.configs.recommended,
+	// Your custom rules here
 ];
 ```
 
@@ -45,7 +53,7 @@ export default [
 Core configuration without custom rules:
 
 ```typescript
-import { baseConfig } from "zayat-eslint-rules";
+import { baseConfig } from 'zayat-eslint-rules';
 
 export default [...baseConfig];
 ```
@@ -55,7 +63,7 @@ export default [...baseConfig];
 Base config + commonly used custom rules:
 
 ```typescript
-import eslintRules from "zayat-eslint-rules";
+import eslintRules from 'zayat-eslint-rules';
 
 export default [...eslintRules.configs.recommended];
 ```
@@ -65,7 +73,7 @@ export default [...eslintRules.configs.recommended];
 All custom rules enabled:
 
 ```typescript
-import eslintRules from "zayat-eslint-rules";
+import eslintRules from 'zayat-eslint-rules';
 
 export default [...eslintRules.configs.strict];
 ```
@@ -75,18 +83,18 @@ export default [...eslintRules.configs.strict];
 For projects with TypeScript type checking:
 
 ```typescript
-import eslintRules from "zayat-eslint-rules";
+import eslintRules from 'zayat-eslint-rules';
 
 export default [
-  ...eslintRules.configs.recommended,
-  ...eslintRules.configs.typeAware,
-  {
-    languageOptions: {
-      parserOptions: {
-        project: "./tsconfig.json",
-      },
-    },
-  },
+	...eslintRules.configs.recommended,
+	...eslintRules.configs.typeAware,
+	{
+		languageOptions: {
+			parserOptions: {
+				project: './tsconfig.json',
+			},
+		},
+	},
 ];
 ```
 
@@ -165,7 +173,7 @@ This package includes `eslint-config-prettier` to automatically disable ESLint r
 Get recommended VS Code settings:
 
 ```typescript
-import { getVSCodeSettingsJSON } from "zayat-eslint-rules";
+import { getVSCodeSettingsJSON } from 'zayat-eslint-rules';
 
 console.log(getVSCodeSettingsJSON());
 ```
@@ -174,17 +182,12 @@ Add to `.vscode/settings.json`:
 
 ```json
 {
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ]
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
 }
 ```
 
@@ -203,10 +206,10 @@ The package enforces using typed Redux hooks:
 
 ```typescript
 // ❌ Error
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 // ✅ Correct
-import { useAppSelector, useAppDispatch } from "@store/hooks";
+import { useAppSelector, useAppDispatch } from '@store/hooks';
 ```
 
 ## Utilities
@@ -214,10 +217,7 @@ import { useAppSelector, useAppDispatch } from "@store/hooks";
 ### Prettier Detection
 
 ```typescript
-import {
-  detectPrettierConfig,
-  getPrettierConfigForESLint,
-} from "zayat-eslint-rules";
+import { detectPrettierConfig, getPrettierConfigForESLint } from 'zayat-eslint-rules';
 
 // Check if Prettier config exists
 const result = detectPrettierConfig();
@@ -231,10 +231,10 @@ const config = getPrettierConfigForESLint();
 
 ```typescript
 import {
-  getRecommendedVSCodeSettings,
-  getVSCodeSettingsJSON,
-  getVSCodeExtensionsRecommendations,
-} from "zayat-eslint-rules";
+	getRecommendedVSCodeSettings,
+	getVSCodeSettingsJSON,
+	getVSCodeExtensionsRecommendations,
+} from 'zayat-eslint-rules';
 
 // Get settings object
 const settings = getRecommendedVSCodeSettings();
@@ -282,12 +282,3 @@ MIT © Zayat
 
 - [GitHub Repository](https://github.com/AliEl-Zayat/eslint-rules-zayat)
 - [Issue Tracker](https://github.com/AliEl-Zayat/eslint-rules-zayat/issues)
-
-
-
-
-
-
-
-
-

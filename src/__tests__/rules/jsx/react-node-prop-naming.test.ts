@@ -109,3 +109,4 @@ ruleTester.run('react-node-prop-naming', reactNodePropNaming, {
 		},
 	],
 });
+

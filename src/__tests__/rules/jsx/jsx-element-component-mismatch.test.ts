@@ -121,3 +121,4 @@ ruleTester.run('jsx-element-component-mismatch', jsxElementComponentMismatch, {
 		},
 	],
 });
+

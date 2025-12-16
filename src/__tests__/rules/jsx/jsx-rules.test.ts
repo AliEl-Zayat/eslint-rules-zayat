@@ -154,3 +154,4 @@ ruleTester.run('no-inline-functions', noInlineFunctions, {
 
 
 
+

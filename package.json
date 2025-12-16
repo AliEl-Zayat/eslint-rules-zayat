@@ -1,6 +1,6 @@
 {
 	"name": "zayat-eslint-rules",
-	"version": "1.2.3",
+	"version": "1.2.4",
 	"description": "Custom ESLint rules and configurations for React/TypeScript projects",
 	"type": "module",
 	"main": "./dist/index.js",
@@ -89,11 +89,11 @@
 	},
 	"homepage": "https://github.com/AliEl-Zayat/eslint-rules-zayat#readme",
 	"peerDependencies": {
-		"eslint": ">=9.0.0",
-		"typescript": ">=5.0.0"
+		"eslint": ">=8.0.0",
+		"typescript": ">=5.0.0",
+		"@eslint/js": ">=9.0.0"
 	},
 	"dependencies": {
-		"@eslint/js": "^9.0.0",
 		"@typescript-eslint/utils": "^8.0.0",
 		"eslint-config-prettier": "^10.0.0",
 		"eslint-plugin-import": "^2.29.0",

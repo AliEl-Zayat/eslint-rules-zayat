@@ -1,4 +1,4 @@
-import eslint from '@eslint/js';
+import { createRequire } from 'node:module';
 import pluginImport from 'eslint-plugin-import';
 import prettierPlugin from 'eslint-plugin-prettier';
 import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort';
@@ -11,6 +11,33 @@ import type { Linter } from 'eslint';
 import { namingConfig } from './naming.js';
 import { reduxConfig } from './redux.js';
 import { getPrettierConfigForESLint } from '../utils/prettier-detector.js';
+
+const require = createRequire(import.meta.url);
+
+/**
+ * Get ESLint recommended config, with fallback for ESLint 8.x
+ * @eslint/js is only available in ESLint 9+, so we provide a fallback for ESLint 8.x
+ */
+function getEslintRecommendedConfig(): Linter.Config[] {
+	try {
+		// Try to import @eslint/js (ESLint 9+)
+		const eslint = require('@eslint/js');
+		return eslint.default?.configs?.recommended || [];
+	} catch {
+		// @eslint/js not available (ESLint 8.x)
+		// Provide basic recommended rules as fallback
+		return [
+			{
+				rules: {
+					'no-unused-vars': 'warn',
+					'no-undef': 'error',
+					'no-redeclare': 'error',
+					'no-var': 'error',
+				},
+			},
+		];
+	}
+}
 
 /**
  * Base configuration preset for zayat-eslint-rules
@@ -31,7 +58,7 @@ import { getPrettierConfigForESLint } from '../utils/prettier-detector.js';
  */
 export const baseConfig: Linter.Config[] = [
 	// ESLint and TypeScript base configs
-	eslint.configs.recommended,
+	...getEslintRecommendedConfig(),
 	...tseslint.configs.recommended,
 	...tseslint.configs.stylistic,
 	...tseslint.configs.strict,
@@ -92,7 +119,7 @@ export const baseConfig: Linter.Config[] = [
 	{
 		files: ['**/*.{js,jsx,ts,tsx}'],
 		plugins: {
-			'import': pluginImport,
+			import: pluginImport,
 			'simple-import-sort': simpleImportSortPlugin,
 			'unused-imports': unusedImportsPlugin,
 		},
@@ -169,13 +196,3 @@ export const baseConfig: Linter.Config[] = [
 ];
 
 export default baseConfig;
-
-
-
-
-
-
-
-
-
-
